@@ -1,0 +1,41 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+struct dist
+{
+    int feet;
+    int inch;
+};
+int main()
+{
+    struct dist itm1,itm2;
+    struct dist *pd1,*pd2,*pd3;
+    pd1=&itm1;
+    pd2=&itm2;
+    pd3=&itm1;
+    scanf("%d%d%d%d",&pd1->feet,&pd1->inch,&pd2->feet,&pd2->inch);
+    if((pd1->feet)<0 || (pd1->inch)<0 || (pd2->feet)<0 || (pd2->inch)<0)
+    {
+        printf("value incompatible");
+        return 0;
+    }
+    else
+    {
+        pd3->feet = pd1->feet + pd2->feet ;
+        pd3->inch = pd1->inch + pd2->inch ;
+        if((pd3->inch)>12)
+        {
+            (pd3->feet)+=1;
+            (pd3->inch)-=12;
+        }
+    }
+    printf("sum = %d feet and %d inch",pd3->feet,pd3->inch);
+    return 0;
+}
+
